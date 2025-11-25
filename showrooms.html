@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Showrooms</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      body {
+        background: #f5f5f5;
+        padding-top: 120px;
+        font-family: "Poppins", sans-serif;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 32px;
+        margin-bottom: 30px;
+      }
+
+      .brand-container {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+      }
+
+      .brand-box {
+        width: 140px;
+        height: 140px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .brand-box img {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="navbar"></div>
+
+    <h1>Select Your Bike Brand</h1>
+
+    <!-- Same icons as hero.html -->
+    <div class="brand-container">
+      <div class="brand-box" onclick="openBrand('Hero')">
+        <img src="/icons/hero.png" alt="Hero" />
+      </div>
+
+      <div class="brand-box" onclick="openBrand('Honda')">
+        <img src="/icons/honda.png" alt="Honda" />
+      </div>
+
+      <div class="brand-box" onclick="openBrand('Royal Enfield')">
+        <img src="/icons/re.png" alt="RE" />
+      </div>
+
+      <div class="brand-box" onclick="openBrand('TVS')">
+        <img src="/icons/tvs.png" alt="TVS" />
+      </div>
+
+      <div class="brand-box" onclick="openBrand('Yamaha')">
+        <img src="/icons/yamaha.png" alt="Yamaha" />
+      </div>
+    </div>
+
+    <script>
+      function openBrand(brand) {
+        window.location.href =
+          "brand_showrooms.html?brand=" + encodeURIComponent(brand);
+      }
+    </script>
+
+    <script>
+      fetch("navbar.html")
+        .then((res) => res.text())
+        .then((data) => (document.getElementById("navbar").innerHTML = data));
+    </script>
+  </body>
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>BikeZilla</h3>
+        <p>
+          Your ultimate bike marketplace. Buy, Sell & Explore the latest bikes.
+        </p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="bikes.html">Bikes</a></li>
+          <li><a href="finance.html">Finance</a></li>
+          <li><a href="upcoming_bikes.html">Upcoming Bikes</a></li>
+          <li><a href="offers.html">Offers</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">© 2025 BikeZilla — All Rights Reserved</div>
+  </footer>
+</html>

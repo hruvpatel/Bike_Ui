@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Map</title>
+
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        padding-top: 120px;
+      }
+      h1 {
+        text-align: center;
+      }
+      iframe {
+        width: 100%;
+        height: 500px;
+        border: none;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="navbar"></div>
+
+    <h1 id="mapTitle"></h1>
+
+    <iframe
+      id="mapFrame"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3660.6824471578423!2d72.556!3d23.020!"
+    >
+    </iframe>
+
+    <script>
+      const url = new URLSearchParams(window.location.search);
+      const brand = url.get("brand");
+      const city = url.get("city");
+
+      document.getElementById(
+        "mapTitle"
+      ).innerText = `${brand} Showrooms in ${city}`;
+
+      document.getElementById(
+        "mapFrame"
+      ).src = `https://www.google.com/maps?q=${city} ${brand} Bike Showroom&output=embed`;
+    </script>
+
+    <script>
+      fetch("navbar.html")
+        .then((res) => res.text())
+        .then((data) => (document.getElementById("navbar").innerHTML = data));
+    </script>
+  </body>
+</html>

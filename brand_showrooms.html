@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Select City</title>
+
+    <style>
+      body {
+        padding-top: 120px;
+        font-family: "Poppins", sans-serif;
+        background: #fafafa;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 30px;
+        margin-bottom: 20px;
+      }
+
+      .city-list {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        width: 300px;
+        margin: auto;
+        margin-top: 30px;
+      }
+
+      .city-btn {
+        padding: 12px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        font-size: 18px;
+        cursor: pointer;
+        transition: 0.3s;
+        border: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="navbar"></div>
+
+    <h1 id="title">Select City</h1>
+
+    <div class="city-list">
+      <button class="city-btn" onclick="openMap('Ahmedabad')">Ahmedabad</button>
+      <button class="city-btn" onclick="openMap('Surat')">Surat</button>
+      <button class="city-btn" onclick="openMap('Mumbai')">Mumbai</button>
+      <button class="city-btn" onclick="openMap('Delhi')">Delhi</button>
+      <button class="city-btn" onclick="openMap('Jaipur')">Jaipur</button>
+    </div>
+
+    <script>
+      let brand = new URLSearchParams(window.location.search).get("brand");
+      document.getElementById("title").innerText = brand + " Showrooms";
+
+      function openMap(city) {
+        window.location.href = `map.html?brand=${encodeURIComponent(
+          brand
+        )}&city=${encodeURIComponent(city)}`;
+      }
+    </script>
+
+    <script>
+      fetch("navbar.html")
+        .then((res) => res.text())
+        .then((data) => (document.getElementById("navbar").innerHTML = data));
+    </script>
+  </body>
+</html>

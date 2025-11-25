@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Apply for Finance</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      body {
+        background: #fff;
+        color: #111;
+      }
+      .apply-box {
+        max-width: 700px;
+        margin: 140px auto;
+        padding: 25px;
+        border: 1px solid #e6e6e6;
+        border-radius: 12px;
+        background: #fff;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      }
+      input,
+      select {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+      }
+      .submit-btn {
+        background: #007bff;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="navbar"></div>
+
+    <div class="apply-box">
+      <h2 id="applyFor">Apply for Finance</h2>
+
+      <form id="financeForm">
+        <label>Full Name</label>
+        <input type="text" required />
+
+        <label>Mobile Number</label>
+        <input type="text" maxlength="10" required />
+
+        <label>City</label>
+        <input type="text" required />
+
+        <label>Bike Model</label>
+        <input type="text" required />
+
+        <label>Loan Amount Needed</label>
+        <input type="number" required />
+
+        <button class="submit-btn">Submit Application</button>
+      </form>
+    </div>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const name = params.get("company");
+      document.getElementById("applyFor").innerText = "Apply for " + name;
+
+      document.getElementById("financeForm").onsubmit = (e) => {
+        e.preventDefault();
+        alert("Application submitted successfully!");
+      };
+    </script>
+
+    <div id="footer"></div>
+
+    <script>
+      fetch("navbar.html")
+        .then((r) => r.text())
+        .then((t) => (document.getElementById("navbar").innerHTML = t));
+      fetch("footer.html")
+        .then((r) => r.text())
+        .then((t) => (document.getElementById("footer").innerHTML = t));
+    </script>
+  </body>
+</html>

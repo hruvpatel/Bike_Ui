@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Product</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --maxw: 1100px;
+        --accent: #ffd814;
+        --muted: #6b7280;
+        --nav-height: 64px;
+        --card-bg: #fff;
+        --radius: 10px;
+      }
+
+      /* keep space for fixed navbar used across site */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      body {
+        font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial;
+        color: #111;
+        background: #f7f8fb;
+        padding-top: var(--nav-height);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .product-wrap {
+        max-width: var(--maxw);
+        margin: 20px auto;
+        padding: 18px;
+        box-sizing: border-box;
+      }
+
+      .back-home {
+        display: inline-block;
+        margin-bottom: 14px;
+        color: inherit;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      /* Amazon-like product layout: three columns on desktop:
+         left = images, center = details, right = sticky buy card */
+      .hero {
+        display: grid;
+        grid-template-columns: 480px 1fr 320px;
+        gap: 28px;
+        align-items: start;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      /* left: main image + thumbnails */
+      .hero-right {
+        /* image column (left visually) */
+        grid-column: 1;
+        align-self: start;
+      }
+      .image-wrap {
+        position: relative;
+      }
+      .product-image {
+        width: 100%;
+        height: 560px;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        display: block;
+        background: #eee;
+      }
+      .thumbs {
+        display: flex;
+        gap: 8px;
+        margin-top: 12px;
+        flex-wrap: wrap;
+      }
+      .thumbs img {
+        width: 76px;
+        height: 56px;
+        object-fit: cover;
+        border-radius: 6px;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        cursor: pointer;
+      }
+
+      /* center: product details */
+      .hero-left {
+        grid-column: 2;
+        min-width: 260px;
+      }
+      h1#productTitle {
+        font-size: 24px;
+        margin: 0 0 8px;
+      }
+      .sub {
+        color: var(--muted);
+        font-size: 14px;
+        margin-bottom: 8px;
+      }
+      .rating {
+        color: #f59e0b;
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+      .specs {
+        margin-top: 12px;
+        padding: 12px;
+        background: var(--card-bg);
+        border-radius: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.04);
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      /* right: buy-panel (sticky) */
+      .buy-panel {
+        grid-column: 3;
+        position: relative;
+      }
+      .buy-card {
+        position: sticky;
+        top: calc(var(--nav-height) + 16px);
+        background: var(--card-bg);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        padding: 18px;
+        border-radius: 10px;
+        box-shadow: 0 12px 30px rgba(2, 8, 23, 0.06);
+      }
+      .buy-card .price {
+        font-size: 28px;
+        color: #111;
+        font-weight: 800;
+        margin: 6px 0;
+      }
+      .buy-card .bike-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 14px;
+        border-radius: 8px;
+        font-weight: 700;
+      }
+      .buy-card .buy-now {
+        margin-top: 10px;
+        background: linear-gradient(180deg, #ffd814, #ffcc00);
+      }
+      .buy-card .meta {
+        font-size: 13px;
+        color: var(--muted);
+        margin-top: 10px;
+      }
+      .buy-card .offer-list {
+        margin-top: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .buy-card .offer {
+        background: #fff;
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid rgba(0, 0, 0, 0.04);
+        font-size: 13px;
+      }
+
+      /* offers and small cards in details area */
+      .offers {
+        display: flex;
+        gap: 10px;
+        margin-top: 14px;
+        flex-wrap: wrap;
+      }
+      .offer-card {
+        background: var(--card-bg);
+        padding: 10px 12px;
+        border-radius: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.04);
+        min-width: 160px;
+        font-size: 13px;
+      }
+
+      /* responsive: collapse to single column on small screens */
+      @media (max-width: 1024px) {
+        .hero {
+          grid-template-columns: 1fr 360px;
+          /* image stacked above details, buy-panel below */
+        }
+        .hero-right {
+          grid-column: 1;
+        }
+        .hero-left {
+          grid-column: 1;
+        }
+        .buy-panel {
+          grid-column: 2;
+        }
+        .product-image {
+          height: 420px;
+        }
+        .buy-card {
+          position: static;
+          top: auto;
+        }
+      }
+      @media (max-width: 760px) {
+        .hero {
+          display: block;
+        }
+        .product-image {
+          height: 280px;
+        }
+        .buy-card {
+          position: static;
+          margin-top: 12px;
+        }
+        .thumbs img {
+          width: 56px;
+          height: 42px;
+        }
+        body {
+          padding-top: calc(var(--nav-height) - 4px);
+        }
+      }
+
+      /* accessibility / focus */
+      a:focus,
+      button:focus {
+        outline: 3px solid rgba(0, 123, 255, 0.18);
+        outline-offset: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- include navbar -->
+    <div id="navbar"></div>
+
+    <main class="product-wrap" id="app">
+      <!-- content will be rendered here by JS -->
+      <div id="loading">Loading...</div>
+    </main>
+
+    <script>
+      // load navbar (reuse existing navbar.html)
+      fetch("navbar.html")
+        .then((r) => r.text())
+        .then((t) => (document.getElementById("navbar").innerHTML = t));
+
+      // simple helper to read URL param
+      function getParam(name) {
+        return new URLSearchParams(location.search).get(name);
+      }
+
+      // render function
+      async function renderProduct() {
+        const id = getParam("id");
+        if (!id) {
+          document.getElementById("app").innerHTML =
+            '<div style="padding:32px;text-align:center">No product selected. <a href="hero.html">Go back</a></div>';
+          return;
+        }
+        const res = await fetch("bikes.json");
+        const data = await res.json();
+        const bike = data[id];
+        const app = document.getElementById("app");
+        if (!bike) {
+          app.innerHTML =
+            '<p>Bike not found. <a href="partners.html">Back</a></p>';
+          return;
+        }
+
+        app.innerHTML = `
+        <a class="back-home" href="index.html">← Back to Home</a>
+        <section class="hero" aria-labelledby="productTitle">
+          <div class="hero-left">
+            <h1 id="productTitle">${bike.title}</h1>
+            <div class="sub">${bike.subtitle}</div>
+            <div class="rating">${bike.rating || ""}</div>
+            <div class="price">${
+              bike.currency
+            }${bike.price.toLocaleString()}</div>
+
+            <div class="specs" id="specs">
+              ${Object.entries(bike.specs)
+                .map(
+                  ([k, v]) =>
+                    `<div><strong>${k}</strong><div style="color:#666;font-size:13px">${v}</div></div>`
+                )
+                .join("")}
+            </div>
+
+            <div class="actions">
+              <button class="bike-btn add-cart" id="addCartBtn"><i class="fa fa-shopping-cart"></i> Add to cart</button>
+              <button class="bike-btn buy-now" id="buyNowBtn"><i class="fa fa-bolt"></i> Buy Now</button>
+              <div class="thumbs" id="thumbs">
+                ${bike.images
+                  .slice(1)
+                  .map((src) => `<img src="${src}" loading="lazy" />`)
+                  .join("")}
+              </div>
+            </div>
+
+            <div class="offers">
+              <div class="offer-card"><strong>Bank Offers</strong> EMI options available</div>
+              <div class="offer-card"><strong>Cashback</strong> Up to ₹3,000 on selected cards</div>
+              <div class="offer-card"><strong>Partners</strong> HDFC, ICICI, SBI</div>
+            </div>
+
+            <div class="section"><h3>Overview</h3><p>${
+              bike.description
+            }</p></div>
+          </div>
+
+          <aside class="hero-right">
+            <img class="product-image" id="mainImage" src="${
+              bike.images[0]
+            }" alt="${bike.title}" />
+          </aside>
+        </section>
+      `;
+
+        // thumbnail clicks swap main image
+        document.querySelectorAll("#thumbs img").forEach((img) => {
+          img.addEventListener(
+            "click",
+            () => (document.getElementById("mainImage").src = img.src)
+          );
+        });
+
+        // add to cart (localStorage simple)
+        document.getElementById("addCartBtn").addEventListener("click", () => {
+          const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+          const existing = cart.find((i) => i.id === bike.id);
+          if (existing) existing.qty++;
+          else
+            cart.push({
+              id: bike.id,
+              name: bike.title,
+              price: bike.price,
+              qty: 1,
+            });
+          localStorage.setItem("cart", JSON.stringify(cart));
+          alert("Added to cart");
+          // update navbar cartCount if present
+          const evt = new Event("storage");
+          window.dispatchEvent(evt);
+        });
+
+        // buy now: store single-item and redirect to checkout.html (create or handle)
+        document.getElementById("buyNowBtn").addEventListener("click", () => {
+          localStorage.setItem(
+            "checkout",
+            JSON.stringify([
+              { id: bike.id, name: bike.title, price: bike.price, qty: 1 },
+            ])
+          );
+          location.href = "checkout.html";
+        });
+
+        // move price/actions into a sticky buy card similar to Amazon
+        (function relocateBuyPanel() {
+          // run after DOM updated
+          setTimeout(() => {
+            const heroSection = document.querySelector(".hero");
+            if (!heroSection) return;
+
+            // create buy panel container if missing
+            let buyPanel = heroSection.querySelector(".buy-panel");
+            if (!buyPanel) {
+              buyPanel = document.createElement("aside");
+              buyPanel.className = "buy-panel";
+              buyPanel.innerHTML = `<div class="buy-card" aria-label="Purchase box">
+          <div class="price"></div>
+          <div class="meta"></div>
+          <button class="bike-btn add-cart"><i class="fa fa-shopping-cart"></i> Add to cart</button>
+          <button class="bike-btn buy-now" style="margin-top:8px"><i class="fa fa-bolt"></i> Buy Now</button>
+          <div class="offer-list"></div>
+        </div>`;
+              heroSection.appendChild(buyPanel);
+            }
+
+            const buyCard = buyPanel.querySelector(".buy-card");
+
+            // move price (if exists) into buy-card .price
+            const price = document.querySelector(".hero .price");
+            if (price) {
+              buyCard.querySelector(".price").textContent = price.textContent;
+              price.remove();
+            }
+
+            // move short meta description or subtitle
+            const subtitle = document.querySelector(".hero .sub");
+            if (subtitle) {
+              buyCard.querySelector(".meta").textContent = subtitle.textContent;
+              // keep the subtitle in details as well (optional): don't remove
+            }
+
+            // move actions (buttons) into buy-card
+            const actions = document.querySelector(".hero .actions");
+            if (actions) {
+              // remove existing add to cart/buy buttons inside actions (we'll use buy-card buttons)
+              // but keep thumbnails if present: move only thumb container back to details
+              const thumbs = actions.querySelector(".thumbs");
+              const offers = document.querySelector(".hero .offers");
+
+              // fill offer-list from .offers (if exists)
+              if (offers) {
+                const offerList = buyCard.querySelector(".offer-list");
+                Array.from(offers.querySelectorAll(".offer-card")).forEach(
+                  (o) => {
+                    const node = o.cloneNode(true);
+                    node.classList.add("offer");
+                    offerList.appendChild(node);
+                  }
+                );
+                // optionally remove original offers to avoid duplication
+                // offers.remove();
+              }
+
+              // If thumbnails should stay in details, ensure thumbs are preserved
+              if (thumbs) {
+                document.querySelector(".hero-left").appendChild(thumbs);
+              }
+
+              // remove old actions to avoid duplicate controls
+              actions.remove();
+            }
+
+            // ensure buy-card buttons work (wire to cart / buy behaviour)
+            buyCard.querySelector(".add-cart").addEventListener("click", () => {
+              // reuse existing add-to-cart logic by simulating click on original addCartBtn if present
+              const originalBtn = document.getElementById("addCartBtn");
+              if (originalBtn) originalBtn.click();
+              else alert("Added to cart");
+            });
+            buyCard.querySelector(".buy-now").addEventListener("click", () => {
+              const originalBuy = document.getElementById("buyNowBtn");
+              if (originalBuy) originalBuy.click();
+              else alert("Proceed to buy");
+            });
+          }, 20);
+        })();
+      }
+
+      renderProduct().catch((e) => {
+        document.getElementById("app").innerText = "Load error";
+        console.error(e);
+      });
+    </script>
+  </body>
+</html>

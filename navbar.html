@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navbar</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <style>
+      /* NAVBAR - sticky and simple */
+      .navbar {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0;
+        right: 0;
+        bottom: auto !important;
+        z-index: 10000 !important;
+        /* optional visual rules */
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 36px;
+        gap: 18px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        transition: padding 0.18s ease, box-shadow 0.18s ease,
+          background 0.18s ease;
+      }
+      .navbar.scrolled {
+        padding: 8px 24px;
+        box-shadow: 0 6px 22px rgba(14, 23, 31, 0.06);
+        background: rgba(255, 255, 255, 0.97);
+      }
+
+      /* reserve space so page content doesn't jump under the fixed navbar */
+      :root {
+        --nav-height: 64px;
+      }
+      body {
+        padding-top: var(--nav-height);
+        box-sizing: border-box;
+      }
+
+      /* responsive tweak */
+      @media (max-width: 480px) {
+        :root {
+          --nav-height: 56px;
+        }
+        .navbar {
+          padding: 8px 12px;
+        }
+      }
+
+      /* keep inner layout stable with fixed navbar */
+      .nav-inner {
+        max-width: 1180px;
+        margin: 0 auto;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* RESET */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      /* LOGO */
+      .logo img {
+        width: 56px;
+        height: 56px;
+        border-radius: 10px;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* MENU */
+      .menu {
+        display: flex;
+        list-style: none;
+        gap: 28px;
+        align-items: center;
+        margin-left: 10px;
+      }
+      .menu li {
+        position: relative;
+      }
+      .menu li a {
+        text-decoration: none;
+        color: #202020;
+        font-size: 15px; /* reduced text size */
+        padding: 8px 6px;
+        border-radius: 6px;
+        transition: color 0.12s ease, background 0.12s ease,
+          transform 0.12s ease;
+      }
+      .menu li a:hover {
+        background: rgba(0, 0, 0, 0.04);
+        color: #000;
+        transform: translateY(-2px);
+      }
+
+      /* DROPDOWN */
+      .dropdown {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        background: #fff;
+        min-width: 180px;
+        padding: 8px 0;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(2, 8, 23, 0.06);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-6px);
+        transition: opacity 0.14s ease, transform 0.14s ease, visibility 0.14s;
+      }
+      .menu li:hover .dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+      .dropdown li a {
+        display: block;
+        padding: 10px 14px;
+        color: #333;
+        font-size: 14px;
+      }
+
+      /* SEARCH BOX */
+      .search-box {
+        position: relative;
+        width: 260px;
+        margin-left: 12px;
+      }
+      .search-box input {
+        width: 100%;
+        padding: 10px 40px 10px 12px;
+        border-radius: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        background: #fff;
+        font-size: 14px;
+      }
+      .search-box .search-icon {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #666;
+      }
+
+      /* CART ICON */
+      .cart-icon {
+        position: relative;
+        cursor: pointer;
+        margin-left: 18px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .cart-icon i {
+        font-size: 20px;
+        color: #222;
+        transition: transform 0.12s ease;
+      }
+      .cart-icon:hover i {
+        transform: translateY(-3px);
+        color: #000;
+      }
+      #cartCount {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        background: #ff4d4f;
+        color: #fff;
+        font-size: 12px;
+        padding: 2px 6px;
+        border-radius: 999px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      }
+
+      /* CART PANEL */
+      .cart-panel {
+        position: fixed;
+        right: -380px;
+        top: 0;
+        width: 360px;
+        height: 100%;
+        background: #fff;
+        border-left: 1px solid rgba(0, 0, 0, 0.06);
+        padding: 18px;
+        transition: right 0.26s ease;
+        z-index: 1200;
+      }
+      .cart-panel.active {
+        right: 0;
+      }
+      .cart-panel ul li {
+        padding: 10px;
+        margin-bottom: 10px;
+        background: #fbfbfb;
+        border-radius: 8px;
+      }
+
+      .close-cart-btn {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        background: #111;
+        color: #fff;
+        border-radius: 8px;
+        margin-top: 10px;
+      }
+
+      /* layout tweaks for smaller screens */
+      @media (max-width: 920px) {
+        .menu {
+          display: none;
+        } /* hide horizontal menu on mobile */
+        .search-box {
+          display: none;
+        }
+        .navbar {
+          padding: 10px 16px;
+        }
+      }
+
+      /* small-screen fallback spacing adjustments */
+      @media (max-width: 480px) {
+        .logo img {
+          width: 48px;
+          height: 48px;
+        }
+        .cart-icon i {
+          font-size: 18px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="hero"></div>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="/icons/logo.png" alt="Logo" />
+      </div>
+
+      <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li>
+          <a href="#">Bikes</a>
+          <ul class="dropdown">
+            <li><a href="new_bikes.html">New Bikes</a></li>
+            <li><a href="upcoming_bikes.html">Upcoming Bikes</a></li>
+            <li><a href="bike_offers.html">Bike Offers</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#">BikeFinance</a>
+          <ul class="dropdown">
+            <li><a href="bikefinance.html">Bike Finance Offers</a></li>
+          </ul>
+        </li>
+
+        <li><a href="showrooms.html">Showrooms</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="contact.html">Contacts</a></li>
+      </ul>
+
+      <div class="search-box">
+        <input id="searchInput" type="text" placeholder="Search here..." />
+        <span id="searchBtn" class="material-icons search-icon">search</span>
+      </div>
+
+      <!-- CART ICON -->
+      <div class="cart-icon">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span id="cartCount">0</span>
+      </div>
+    </nav>
+
+    <!-- SLIDE CART PANEL -->
+    <div id="cartPanel" class="cart-panel">
+      <h2>Your Cart</h2>
+      <ul id="cartItems"></ul>
+      <button id="closeCart" class="close-cart-btn">Close</button>
+    </div>
+
+    <script src="cart.js"></script>
+    <script>
+      // navbar scroll shrink + simple cart-panel toggle
+      (function () {
+        const nav = document.querySelector(".navbar");
+        const cartIcon = document.querySelector(".cart-icon");
+        const cartPanel = document.getElementById("cartPanel");
+
+        window.addEventListener("scroll", () =>
+          nav.classList.toggle("scrolled", window.scrollY > 8)
+        );
+
+        if (cartIcon && cartPanel) {
+          cartIcon.addEventListener("click", () =>
+            cartPanel.classList.toggle("active")
+          );
+          document.addEventListener("click", (e) => {
+            if (!cartPanel.classList.contains("active")) return;
+            if (
+              e.target.closest(".cart-panel") ||
+              e.target.closest(".cart-icon")
+            )
+              return;
+            cartPanel.classList.remove("active");
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

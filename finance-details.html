@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Offer Details</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      body {
+        background: #fff;
+        color: #111;
+      }
+      .box {
+        max-width: 900px;
+        margin: 140px auto;
+        background: #fff;
+        padding: 25px;
+        border-radius: 12px;
+        border: 1px solid #e6e6e6;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      }
+      h2 {
+        color: #0b2546;
+        margin-bottom: 12px;
+      }
+      .back-btn {
+        display: inline-block;
+        margin-top: 20px;
+        background: #007bff;
+        padding: 10px 14px;
+        color: #fff;
+        border-radius: 8px;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="navbar"></div>
+
+    <div class="box">
+      <h2 id="companyName">Offer Details</h2>
+
+      <p>
+        <strong>Interest Rate:</strong> Depends on credit score, bike model &
+        lender.
+      </p>
+      <p><strong>Loan Tenure:</strong> 6 months to 5 years.</p>
+      <p><strong>Processing Fee:</strong> Based on lender terms.</p>
+      <p><strong>Documents Required:</strong></p>
+      <ul>
+        <li>Aadhar Card</li>
+        <li>PAN Card</li>
+        <li>Bank Statement (6 months)</li>
+        <li>Salary Slip or Income Proof</li>
+      </ul>
+
+      <a href="bikefinance.html" class="back-btn">← Back to Finance</a>
+    </div>
+
+    <script>
+      // GET COMPANY NAME FROM URL
+      const params = new URLSearchParams(window.location.search);
+      document.getElementById("companyName").innerText =
+        params.get("company") + " – Offer Details";
+    </script>
+
+    <div id="footer"></div>
+
+    <script>
+      fetch("navbar.html")
+        .then((r) => r.text())
+        .then((t) => (document.getElementById("navbar").innerHTML = t));
+      fetch("footer.html")
+        .then((r) => r.text())
+        .then((t) => (document.getElementById("footer").innerHTML = t));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+{
+  "fz-s": {
+    "id": "fz-s",
+    "title": "Yamaha FZ‑S",
+    "price": 190000,
+    "currency": "₹",
+    "subtitle": "Comfort‑oriented streetbike • 149cc • Fuel‑injected",
+    "rating": "4.4 (860)",
+    "images": [
+      "/images/fzs_main.webp",
+      "/images/fzs_1.jpeg",
+      "/images/fzs_2.jpg",
+      "/images/yamaha-fzs.png"
+    ],
+    "specs": {
+      "Engine": "149 cc, air‑cooled, SOHC",
+      "Power": "12.4 PS @ 8000 rpm",
+      "Torque": "13.3 Nm @ 6000 rpm",
+      "Transmission": "5‑speed"
+    },
+    "description": "The Yamaha FZ‑S delivers a relaxed, confidence‑inspiring ride with economical performance for daily commuting."
+  },
+  "yamaha-mt15-v2": {
+    "id": "yamaha-mt15-v2",
+    "title": "Yamaha MT-15 V2",
+    "price": 180000,
+    "currency": "₹",
+    "subtitle": "Streetfighter styling • 155cc • 6-speed",
+    "rating": "4.6 (1,238)",
+    "images": [
+      "/images/mt15_4.jpeg",
+      "/images/mt15_1.webp",
+      "/images/mt15_2.jpeg",
+      "/images/mt15_3.jpeg"
+    ],
+    "specs": {
+      "Engine": "155 cc, liquid-cooled",
+      "Power": "18.4 PS @ 10000 rpm",
+      "Torque": "14.1 Nm",
+      "Transmission": "6-speed"
+    },
+    "description": "The MT-15 V2 blends aggressive styling with a torquey 155cc engine and modern features."
+  }
+}

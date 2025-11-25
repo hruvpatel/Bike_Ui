@@ -1,0 +1,738 @@
+/* ===========================
+   RESET + BODY
+   (White overall page background kept via body background image in index)
+=========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  background: #ffffff;
+  color: #111;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===========================
+   NAVBAR (Soft Grey)
+=========================== */
+.navbar {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  background: #f2f2f2; /* soft grey */
+  border-bottom: 1px solid #e0e0e0;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 36px;
+  align-items: center;
+}
+.menu > li {
+  position: relative;
+}
+.menu a {
+  color: #222;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 8px 0;
+  display: inline-block;
+}
+.menu a:hover {
+  color: #007bff;
+}
+
+.dropdown {
+  position: absolute;
+  top: 58px;
+  left: 0;
+  min-width: 200px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e6e6e6;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: 0.18s ease;
+  z-index: 50;
+}
+
+.menu li:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown li a {
+  display: block;
+  padding: 10px 14px;
+  color: #333;
+  font-weight: 500;
+}
+.dropdown li a:hover {
+  background: #f5faff;
+  color: #007bff;
+}
+
+.search-box {
+  position: relative;
+  width: 260px;
+}
+.search-box input {
+  width: 100%;
+  padding: 10px 40px 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #fff;
+}
+.search-box .search-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+}
+
+/* Add small top spacing for content because navbar is fixed */
+.main-content-offset {
+  padding-top: 110px;
+}
+
+/* ===========================
+   HERO
+=========================== */
+.hero-section {
+  /* keep the same top spacing, reduce bottom gap so image fits nicely */
+  padding: 100px; /* top right bottom left */
+  margin: 0;
+  background: #ffffff;
+}
+.hero-container {
+  max-width: 1200px;
+  max-height: 350px;
+  margin: 0 auto;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: space-between;
+}
+.hero-left {
+  position: absolute;
+  left: 60px;
+  bottom: 36px;
+  z-index: 3;
+  pointer-events: auto;
+}
+.hero-left h1 {
+  font-size: 34px;
+  color: #0b2546;
+  margin-bottom: 12px;
+}
+.hero-left p {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 18px;
+}
+.hero-btn {
+  background: #007bff;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+.hero-right img {
+  max-width: 520px;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* BRAND STRIP */
+.brand-column {
+  max-width: 1200px;
+  margin: 20px auto;
+}
+.brand-strip {
+  display: flex;
+  gap: 42px;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  background: #fafafa;
+  border-radius: 12px;
+  border: 1px solid #eee;
+}
+.brand-strip img {
+  width: 68px;
+  cursor: pointer;
+}
+.brand-strip a {
+  display: inline-block;
+  padding-bottom: 5px;
+  border-bottom: 3px solid transparent;
+}
+
+.brand-strip a:hover {
+  border-bottom: 3px solid orange;
+}
+
+/* ===========================
+   BIKE SLIDER (DASHBOARD) - KEEP AS IS
+=========================== */
+.bike-gallery-section {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+}
+.gallery-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: #0b2546;
+  margin-bottom: 20px;
+}
+
+.bike-slider-container {
+  width: 100%;
+  overflow: hidden;
+}
+.bike-slider {
+  display: flex;
+  gap: 26px;
+  align-items: flex-start;
+  animation: autoScroll 30s linear infinite;
+}
+
+/* GRID VIEW FOR BRAND PAGES ONLY */
+.brand-bike-section {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 10px;
+}
+
+.brand-bike-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 bikes each row */
+  gap: 25px;
+}
+
+.brand-bike-card {
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  border: 1px solid #ddd;
+  transition: 0.3s ease;
+}
+
+.brand-bike-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+}
+
+@keyframes autoScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* card used in slider (keep previous sizing) */
+.bike-gallery-card {
+  min-width: 220px;
+  padding: 16px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid #e6eef9;
+  box-shadow: 0 6px 18px rgba(11, 37, 70, 0.06);
+  text-align: center;
+  transition: transform 0.25s ease;
+}
+.bike-gallery-card:hover {
+  transform: translateY(-6px);
+}
+
+.gallery-thumb {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+.bike-name {
+  font-weight: 700;
+  color: #0b2546;
+  margin-top: 6px;
+  font-size: 16px;
+}
+
+/* Buttons inside slider cards */
+.bike-card-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+.bike-btn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #f0f8ff;
+  border: 1px solid #cfe9ff;
+  color: #004a9f;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+.bike-btn i {
+  font-size: 15px;
+}
+.bike-btn:hover {
+  background: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+/* ===========================
+   NEW/UPCOMING/OFFERS GRID (cards style #2)
+=========================== */
+.bike-section {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+}
+.title {
+  font-size: 26px;
+  text-align: center;
+  color: #0b2546;
+  margin-bottom: 18px;
+}
+.bike-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+.bike-gallery-card {
+  width: 320px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 8px 20px rgba(11, 37, 70, 0.06);
+  text-align: center;
+}
+.bike-gallery-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+.bike-name {
+  font-size: 16px;
+  color: #0b2546;
+  font-weight: 700;
+}
+.offer-text {
+  font-size: 14px;
+  color: #007bff;
+  margin-top: 6px;
+}
+
+/* single bike-list pages */
+.bike-list-section {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
+}
+/* ===========================
+   BIKE CARD IMPROVEMENTS
+=========================== */
+
+/* Card padding + spacing */
+.bike-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  padding: 20px; /* increased padding */
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(11, 37, 70, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.bike-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(11, 37, 70, 0.12);
+}
+
+/* Bike thumbnail adjustments */
+.bike-thumb {
+  width: 180px; /* slightly bigger for emphasis */
+  height: 120px;
+  object-fit: contain;
+  border-radius: 10px;
+  padding: 8px; /* subtle padding around image */
+  background: #f9f9f9; /* light background for white bikes */
+}
+
+/* Bike info spacing */
+.bike-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Headings with subtle colors */
+.bike-info h3 {
+  color: #0b2546;
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+.brand-title {
+  text-align: center;
+  font-size: 28px;
+  color: #007bff; /* brand accent color */
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Price style */
+.price {
+  font-weight: 700;
+  color: #ff6600; /* bright orange */
+  font-size: 16px;
+  margin-top: 6px;
+}
+
+/* List items spacing */
+.bike-info ul {
+  padding-left: 18px;
+}
+.bike-info li {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* Buttons spacing */
+.bike-card-buttons {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+}
+.bike-btn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+.bike-btn.add-cart {
+  background: #007bff;
+  color: #fff;
+}
+.bike-btn.add-cart:hover {
+  background: #0056b3;
+}
+.bike-btn.explore-more {
+  background: #f5f5f5;
+  color: #007bff;
+  border: 1px solid #cfe9ff;
+}
+.bike-btn.explore-more:hover {
+  background: #007bff;
+  color: #fff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .bike-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .bike-thumb {
+    width: 220px;
+    height: 140px;
+  }
+  .bike-info {
+    gap: 8px;
+  }
+}
+
+/* ===========================
+   FINANCE PAGE
+=========================== */
+.finance-section {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
+}
+.finance-card {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #e6eef9;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(11, 37, 70, 0.04);
+}
+.finance-img {
+  width: 140px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #f4f4f4;
+}
+.finance-info h3 {
+  color: #007bff;
+  margin-bottom: 6px;
+}
+.finance-details {
+  font-size: 15px;
+  color: #333;
+  line-height: 1.6;
+}
+.finance-buttons {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+.apply-btn {
+  background: #007bff;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+.view-btn {
+  background: #f5f7fb;
+  color: #007bff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 1px solid #dfeffc;
+}
+
+/* 4 step reasons */
+.reason-box {
+  background: #fff;
+  border: 1px solid #e9eef6;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(11, 37, 70, 0.03);
+}
+
+/* ===========================
+   FOOTER (BLACK)
+=========================== */
+.footer {
+  background: #000;
+  color: #fff;
+  padding: 40px 20px;
+  margin-top: 40px;
+}
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto 18px;
+}
+.footer-section h3,
+.footer-section h4 {
+  color: #fff;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+.footer-section p {
+  color: #ccc;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-section a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 14px;
+}
+.footer-section a:hover {
+  color: #fff;
+}
+.social-icons a {
+  color: #ccc;
+  margin-right: 12px;
+  font-size: 18px;
+}
+.footer-bottom {
+  text-align: center;
+  color: #aaa;
+  padding-top: 16px;
+  border-top: 1px solid #111;
+  margin-top: 18px;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 900px) {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .brand-strip {
+    gap: 22px;
+  }
+  .bike-gallery-card {
+    width: 260px;
+  }
+  .bike-gallery {
+    gap: 18px;
+  }
+  .menu {
+    gap: 18px;
+  }
+  .title,
+  .gallery-title {
+    margin-top: 90px;
+  }
+}
+
+/* Last-resort overrides to prevent full-screen images */
+.bike-gallery-card img,
+.gallery-thumb,
+.bike-thumb {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain !important;
+}
+
+/* ===========================
+   HERO BIKES HIGHLIGHTS TABLE
+=========================== */
+.bike-highlights-table {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+.bike-highlights-table h2 {
+  text-align: center;
+  font-size: 28px;
+  color: #0b2546;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(11, 37, 70, 0.06);
+}
+
+th,
+td {
+  padding: 14px 18px; /* slightly smaller padding */
+  text-align: left;
+  font-size: 14px; /* reduced from 16px */
+  color: #333;
+}
+
+.bike-highlights-table h2 {
+  text-align: center;
+  font-size: 24px; /* reduced from 28px */
+  color: #0b2546;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+th {
+  background-color: #f0f4f8;
+  color: #007bff;
+  font-weight: 600;
+}
+
+tr {
+  transition: background 0.3s ease;
+}
+
+tr:hover {
+  background-color: #f1f5f9;
+}
+
+.hero-gallery-section {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.gallery-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: #0b2546;
+  margin-bottom: 30px;
+}
+
+.hero-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.gallery-card {
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  padding: 8px;
+  background: #fff;
+  text-align: center;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}

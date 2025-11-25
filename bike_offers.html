@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bike Offers</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      /* Fix images for 1280×720 to 1920×1080 */
+      .bike-gallery {
+        margin-top: 30px !important;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px; /* space between images */
+      }
+
+      /* Image fix */
+      .bike-gallery-card img {
+        width: 100%;
+        max-width: 400px;
+        height: 230px;
+        object-fit: contain;
+        padding: 10px;
+      }
+
+      /* Center the heading */
+      .title {
+        text-align: center;
+        font-size: 2.5rem;
+        color: #00eaff;
+        text-shadow: 0 0 12px rgba(0, 234, 255, 0.5);
+        margin-top: 40px;
+      }
+
+      /* Offer text styling */
+      .offer-text {
+        font-size: 14px;
+        font-weight: 600;
+        color: #00eaff;
+        margin-top: 8px;
+        text-align: center;
+      }
+
+      /* Button spacing fix for offers */
+      .bike-card-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 12px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <style>
+      body {
+        background: url("/images/bg.jpg") center/cover no-repeat fixed;
+      }
+    </style>
+
+    <!-- NAVBAR -->
+    <div id="navbar"></div>
+    <script src="navbar.js"></script>
+
+    <!-- LATEST BIKE OFFERS SECTION -->
+    <section class="bike-section">
+      <h2 class="title">Latest Bike Offers</h2>
+
+      <div class="bike-gallery">
+        <!-- OFFER 1 -->
+        <div class="bike-gallery-card">
+          <img src="images/re-classic350.png" class="bike-img" />
+          <h3 class="bike-name">Royal Enfield Classic 350</h3>
+          <p class="offer-text">₹5,000 Cashback</p>
+
+          <div class="bike-card-buttons">
+            <a href="#" class="bike-btn add-cart">
+              <i class="fa-solid fa-cart-plus"></i> Add to Cart
+            </a>
+            <a href="#" class="bike-btn explore-more">
+              <i class="fas fa-arrow-right"></i> Explore
+            </a>
+          </div>
+        </div>
+
+        <!-- OFFER 2 -->
+        <div class="bike-gallery-card">
+          <img src="images/yamaha-fzs.png" class="bike-img" />
+          <h3 class="bike-name">Yamaha FZ-S</h3>
+          <p class="offer-text">Free Helmet + ₹3,000 Discount</p>
+
+          <div class="bike-card-buttons">
+            <a href="#" class="bike-btn add-cart">
+              <i class="fa-solid fa-cart-plus"></i> Add to Cart
+            </a>
+            <a href="#" class="bike-btn explore-more">
+              <i class="fas fa-arrow-right"></i> Explore
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+    <script src="search.js"></script>
+  </body>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>BikeZilla</h3>
+        <p>
+          Your ultimate bike marketplace. Buy, Sell & Explore the latest bikes.
+        </p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="bikes.html">Bikes</a></li>
+          <li><a href="finance.html">Finance</a></li>
+          <li><a href="upcoming_bikes.html">Upcoming Bikes</a></li>
+          <li><a href="offers.html">Offers</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">© 2025 BikeZilla — All Rights Reserved</div>
+  </footer>
+</html>

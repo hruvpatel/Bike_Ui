@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upcoming Bikes</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <style>
+      body {
+        background: url("/images/bg.jpg") center/cover no-repeat fixed;
+        height: 100vh;
+      }
+
+      /* Remove slider - make grid layout */
+      .bike-slider-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+
+      .bike-slider {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 40px;
+        animation: none; /* STOP slider auto scroll */
+      }
+
+      /* Fix image size for all upcoming bikes */
+      .bike-gallery-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: contain;
+      }
+
+      /* Add padding under heading */
+      .gallery-title {
+        margin-bottom: 40px;
+      }
+    </style>
+
+    <!-- NAVBAR -->
+    <div id="navbar"></div>
+    <script src="navbar.js"></script>
+
+    <!-- UPCOMING BIKES SECTION -->
+    <section class="bike-gallery-section">
+      <h2 class="gallery-title">Upcoming Bikes</h2>
+
+      <div class="bike-slider-container">
+        <div class="bike-slider">
+          <!-- Bike Card 1 -->
+          <div class="bike-gallery-card">
+            <img src="images/Hero_Xtreme_200S.png" class="gallery-thumb" />
+            <h3 class="bike-name">Hero Xtreme 200S (2025)</h3>
+
+            <div class="bike-card-buttons">
+              <a class="bike-btn add-cart">
+                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+              </a>
+              <a class="bike-btn explore-more">
+                <i class="fa-solid fa-arrow-right"></i> Explore
+              </a>
+            </div>
+          </div>
+
+          <!-- Bike Card 2 -->
+          <div class="bike-gallery-card">
+            <img src="images/TVS_Apache_Electric.png" class="gallery-thumb" />
+            <h3 class="bike-name">TVS Apache Electric</h3>
+
+            <div class="bike-card-buttons">
+              <a class="bike-btn add-cart">
+                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+              </a>
+              <a class="bike-btn explore-more">
+                <i class="fa-solid fa-arrow-right"></i> Explore
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="search.js"></script>
+  </body>
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>BikeZilla</h3>
+        <p>
+          Your ultimate bike marketplace. Buy, Sell & Explore the latest bikes.
+        </p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="bikes.html">Bikes</a></li>
+          <li><a href="finance.html">Finance</a></li>
+          <li><a href="upcoming_bikes.html">Upcoming Bikes</a></li>
+          <li><a href="offers.html">Offers</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">© 2025 BikeZilla — All Rights Reserved</div>
+  </footer>
+</html>

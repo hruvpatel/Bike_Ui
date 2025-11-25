@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: #ffffff;
+        color: #000;
+        padding-top: 100px; /* space for navbar */
+      }
+
+      /* Main container */
+      .contact-container {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        padding-bottom: 50px;
+      }
+
+      /* Left form section */
+      .contact-form {
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .contact-form h2 {
+        margin-bottom: 15px;
+        font-size: 28px;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        padding: 14px;
+        margin-top: 12px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        outline: none;
+      }
+
+      .contact-form textarea {
+        height: 150px;
+        resize: none;
+      }
+
+      .contact-form button {
+        width: 100%;
+        padding: 14px;
+        background: #007bff;
+        color: white;
+        font-size: 18px;
+        border: none;
+        border-radius: 8px;
+        margin-top: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .contact-form button:hover {
+        background: #0056d2;
+      }
+
+      /* Right info section */
+      .contact-info {
+        padding: 30px;
+      }
+
+      .contact-info h3 {
+        font-size: 24px;
+        margin-bottom: 15px;
+      }
+
+      .info-box {
+        margin-bottom: 20px;
+      }
+
+      .info-box p {
+        font-size: 16px;
+        margin: 5px 0;
+      }
+
+      /* Map */
+      .map iframe {
+        width: 100%;
+        height: 250px;
+        border-radius: 10px;
+        border: none;
+      }
+
+      /* Responsive */
+      @media (max-width: 850px) {
+        .contact-container {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- CONTACT SECTION -->
+    <div class="contact-container">
+      <!-- LEFT: CONTACT FORM -->
+      <div class="contact-form">
+        <h2>Get In Touch</h2>
+        <p>Have questions? Contact us anytime — we’re here to help!</p>
+
+        <input type="text" placeholder="Full Name" />
+        <input type="email" placeholder="Email Address" />
+        <input type="text" placeholder="Phone Number" />
+        <textarea placeholder="Your Message"></textarea>
+
+        <button>Send Message</button>
+      </div>
+
+      <!-- RIGHT: COMPANY INFO + MAP -->
+      <div class="contact-info">
+        <h3>Contact Details</h3>
+
+        <div class="info-box">
+          <p><strong>Email:</strong> support@bikerworld.com</p>
+          <p><strong>Phone:</strong> +91 98765 43210</p>
+        </div>
+
+        <div class="info-box">
+          <p><strong>Working Hours:</strong></p>
+          <p>Monday - Saturday : 9:00 AM - 8:00 PM</p>
+          <p>Sunday : Closed</p>
+        </div>
+
+        <h3>Our Location</h3>
+        <div class="map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3679.843429977281!2d75.8839!3d22.7196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fd082e3c2a9f%3A0xf4be3b0b4b5c620e!2sHero%20Showroom!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+    <div id="navbar"></div>
+    <script>
+      // load navbar.html (same pattern used in index)
+      document.addEventListener("DOMContentLoaded", () => {
+        fetch("navbar.html")
+          .then((r) => r.text())
+          .then((t) => (document.getElementById("navbar").innerHTML = t))
+          .catch((e) => console.error("Error loading navbar:", e));
+      });
+    </script>
+    <div id="footer"></div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        fetch("footer.html")
+          .then((r) => r.text())
+          .then((t) => (document.getElementById("footer").innerHTML = t))
+          .catch((e) => console.error("Error loading footer:", e));
+      });
+    </script>
+  </body>
+</html>

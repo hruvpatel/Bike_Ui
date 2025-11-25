@@ -1,0 +1,1373 @@
+<section class="hero-section">
+  <div class="hero-container full-hero">
+    <div class="hero-bg">
+      <img src="/images/homepage.avif" alt="Hero 3D Model" />
+      <div class="hero-left">
+        <button class="hero-btn">Shop Collections</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND STRIP -->
+<div class="brand-column">
+  <div class="brand-strip">
+    <a href="herobikes.html"><img src="/icons/hero.png" alt="hero" /></a>
+    <a href="honda.html"><img src="/icons/honda.png" alt="honda" /></a>
+    <a href="royal_enfield.html"><img src="/icons/re.png" alt="re" /></a>
+    <a href="tvs.html"><img src="/icons/tvs.png" alt="tvs" /></a>
+    <a href="yamaha.html"><img src="/icons/yamaha.png" alt="yamaha" /></a>
+  </div>
+</div>
+
+<!-- SHOP LAYOUT: left filters + right product list -->
+<section class="shop-layout">
+  <!-- FILTER TOGGLE BUTTON (visible on mobile / usable on desktop) -->
+  <button
+    id="filtersToggle"
+    class="filters-toggle"
+    aria-expanded="false"
+    aria-controls="filtersPanel"
+  >
+    <i class="fas fa-sliders-h"></i> Filters
+  </button>
+
+  <!-- LEFT FILTERS (like provided image) -->
+  <aside id="filtersPanel" class="filters-left" aria-hidden="true">
+    <button id="filtersClose" class="filters-close" aria-label="Close filters">
+      <i class="fas fa-times"></i>
+    </button>
+    <h3>Delivery Day</h3>
+    <label
+      ><input type="checkbox" class="filter-delivery" value="today" /> Get It
+      Today</label
+    >
+    <label
+      ><input type="checkbox" class="filter-delivery" value="tomorrow" /> Get It
+      by Tomorrow</label
+    >
+    <label
+      ><input type="checkbox" class="filter-delivery" value="2days" /> Get It in
+      2 Days</label
+    >
+
+    <h3>Price</h3>
+    <div class="price-compact">₹68 - ₹261,900+</div>
+
+    <div
+      class="price-slider"
+      style="display: flex; align-items: center; gap: 8px"
+    >
+      <div style="flex: 1">
+        <input type="range" id="priceMin" min="0" max="300000" value="0" />
+        <input type="range" id="priceMax" min="0" max="300000" value="300000" />
+        <div class="price-values">
+          From <span id="pmin">0</span> to <span id="pmax">300000</span>
+        </div>
+      </div>
+
+      <!-- GO button to apply price range -->
+      <div style="white-space: nowrap">
+        <button
+          id="priceGo"
+          style="
+            padding: 6px 10px;
+            border: 1px solid #ddd;
+            background: #fff;
+            border-radius: 6px;
+            cursor: pointer;
+          "
+        >
+          Go
+        </button>
+      </div>
+    </div>
+
+    <h3>Search (by name)</h3>
+    <input
+      type="text"
+      id="filterName"
+      placeholder="Type model name (e.g. R15)"
+      style="
+        width: 100%;
+        padding: 6px;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+      "
+    />
+
+    <h3>Deals & Discounts</h3>
+    <label
+      ><input type="checkbox" class="filter-deal" value="today" /> Today's
+      Deals</label
+    >
+    <label
+      ><input type="checkbox" class="filter-deal" value="all" /> All
+      Discounts</label
+    >
+
+    <h3>Brands</h3>
+    <label
+      ><input type="checkbox" class="filter-brand" value="Yamaha" />
+      Yamaha</label
+    >
+    <label
+      ><input type="checkbox" class="filter-brand" value="Honda" /> Honda</label
+    >
+    <label
+      ><input type="checkbox" class="filter-brand" value="RE" /> Royal
+      Enfield</label
+    >
+    <label
+      ><input type="checkbox" class="filter-brand" value="TVS" /> TVS</label
+    >
+    <label
+      ><input type="checkbox" class="filter-brand" value="KTM" /> KTM</label
+    >
+
+    <div class="filters-actions">
+      <button id="applyFilters">Apply</button>
+      <button id="resetFilters">Reset</button>
+    </div>
+  </aside>
+
+  <!-- RIGHT: category tabs + horizontal product list (cards same size) -->
+  <div class="products-right">
+    <nav class="bike-cats">
+      <button class="cat-btn active" data-cat="trending">TRENDING</button>
+      <button class="cat-btn" data-cat="popular">POPULAR</button>
+      <button class="cat-btn" data-cat="electric">ELECTRIC</button>
+      <button class="cat-btn" data-cat="upcoming">UPCOMING</button>
+    </nav>
+
+    <div class="bike-slider-wrapper">
+      <button class="slider-arrow prev" aria-label="previous">‹</button>
+
+      <div class="bike-slider-viewport">
+        <div class="bike-slider-track" id="bikeSlider">
+          <!-- many dummy cards (same visual size) - set data attributes used by filter/slider -->
+          <!-- NOTE: replace image src with real images in /images/ or use placeholder -->
+          <div
+            class="bike-gallery-card"
+            data-cat="trending"
+            data-brand="Yamaha"
+            data-price="156445"
+            data-delivery="today"
+            data-deal="no"
+            data-name="Yamaha MT 15 V2"
+          >
+            <div class="image-box">
+              <a
+                href="product.html?id=yamaha-mt15-v2"
+                class="product-link"
+                aria-label="Open Yamaha MT-15 V2 product page"
+              >
+                <img
+                  src="/images/yamaha-mt15.png"
+                  class="gallery-thumb"
+                  alt="Yamaha MT 15 V2"
+                  loading="lazy"
+                />
+              </a>
+            </div>
+            <div class="card-body">
+              <p class="bike-name">Yamaha MT 15 V2</p>
+              <p class="bike-price">
+                ₹1,80,000 <span class="sub">Onwards</span>
+              </p>
+              <a href="#" class="bike-btn add-cart">
+                <i class="fas fa-shopping-cart"></i>
+              </a>
+            </div>
+          </div>
+
+          <div
+            class="bike-gallery-card"
+            data-cat="popular"
+            data-brand="Yamaha"
+            data-price="170240"
+            data-delivery="tomorrow"
+            data-deal="yes"
+            data-name="Yamaha R15 V4"
+          >
+            <div class="image-box">
+              <img
+                src="/images/yamaha-r15.png"
+                class="gallery-thumb"
+                alt="Yamaha R15 V4"
+              />
+            </div>
+            <div class="card-body">
+              <p class="bike-name">Yamaha R15 V4</p>
+              <p class="bike-price">
+                ₹1,70,240 <span class="sub">Onwards</span>
+              </p>
+              <a href="#" class="bike-btn add-cart">
+                <i class="fas fa-shopping-cart"></i>
+              </a>
+            </div>
+          </div>
+
+          <div
+            class="bike-gallery-card"
+            data-cat="electric"
+            data-brand="Yamaha"
+            data-price="149990"
+            data-delivery="2days"
+            data-deal="no"
+            data-name="Yamaha XSR 155"
+          >
+            <div class="image-box">
+              <img
+                src="/images/yamaha-xsr155.png"
+                class="gallery-thumb"
+                alt="Yamaha XSR 155"
+              />
+            </div>
+            <div class="card-body">
+              <p class="bike-name">Yamaha XSR 155</p>
+              <p class="bike-price">
+                ₹1,49,990 <span class="sub">Onwards</span>
+              </p>
+              <a href="#" class="bike-btn add-cart">
+                <i class="fas fa-shopping-cart"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- duplicates for each category to show many items (same image size) -->
+          <div
+            class="bike-gallery-card"
+            data-cat="trending"
+            data-brand="Yamaha"
+            data-price="110000"
+            data-delivery="today"
+            data-deal="yes"
+            data-name="Yamaha FZ-S"
+          >
+            <div class="image-box">
+              <a
+                href="product.html?id=fz-s"
+                class="product-link"
+                aria-label="Open Yamaha FZ‑S product page"
+              >
+                <img
+                  src="/images/yamaha-fzs.png"
+                  class="gallery-thumb"
+                  alt="Yamaha FZ‑S"
+                  loading="lazy"
+                />
+              </a>
+            </div>
+
+            <div class="card-body">
+              <p class="bike-name">Yamaha FZ-S</p>
+              <p class="bike-price">
+                ₹1,90,000 <span class="sub">Onwards</span>
+              </p>
+              <a href="#" class="bike-btn add-cart">
+                <i class="fas fa-shopping-cart"></i>
+              </a>
+            </div>
+          </div>
+
+          <div
+            class="bike-gallery-card"
+            data-cat="popular"
+            data-brand="TVS"
+            data-price="122000"
+            data-delivery="tomorrow"
+            data-deal="no"
+            data-name="TVS Apache RTR 160"
+          >
+            <div class="image-box">
+              <img
+                src="/images/tvs-apache.png"
+                class="gallery-thumb"
+                alt="TVS Apache"
+              />
+            </div>
+            <div class="card-body">
+              <p class="bike-name">TVS Apache RTR 160</p>
+              <p class="bike-price">
+                ₹1,22,000 <span class="sub">Onwards</span>
+              </p>
+              <a href="#" class="bike-btn add-cart">
+                <i class="fas fa-shopping-cart"></i>
+              </a>
+            </div>
+          </div>
+
+          <div
+            class="bike-gallery-card"
+            data-cat="upcoming"
+            data-brand="KTM"
+            data-price="190000"
+            data-delivery="2days"
+            data-deal="no"
+            data-name="KTM Duke 200"
+          >
+            <div class="image-box">
+              <img
+                src="/images/ktm-duke200.png"
+                class="gallery-thumb"
+                alt="KTM Duke 200"
+              />
+            </div>
+            <div class="card-body">
+              <p class="bike-name">KTM Duke 200</p>
+              <p class="bike-price">
+                ₹1,90,000 <span class="sub">Onwards</span>
+              </p>
+              <a href="#" class="bike-btn add-cart">
+                <i class="fas fa-shopping-cart"></i>
+              </a>
+            </div>
+          </div>
+
+          <div
+            class="bike-gallery-card"
+            data-cat="electric"
+            data-brand="Ather"
+            data-price="140000"
+            data-delivery="today"
+            data-deal="yes"
+            data-name="Ather 450X"
+          >
+            <div class="image-box">
+              <img
+                src="/images/ather450x.png"
+                class="gallery-thumb"
+                alt="Ather 450X"
+              />
+            </div>
+            <div class="card-body">
+              <p class="bike-name">Ather 450X</p>
+              <p class="bike-price">
+                ₹1,40,000 <span class="sub">Onwards</span>
+              </p>
+              <a href="#" class="bike-btn add-cart">
+                <i class="fas fa-shopping-cart"></i>
+              </a>
+            </div>
+          </div>
+
+          <div
+            class="bike-gallery-card"
+            data-cat="popular"
+            data-brand="Bajaj"
+            data-price="150000"
+            data-delivery="tomorrow"
+            data-deal="no"
+            data-name="Bajaj Pulsar NS200"
+          >
+            <div class="image-box">
+              <img
+                src="/images/pulsar-ns200.png"
+                class="gallery-thumb"
+                alt="Pulsar NS200"
+              />
+            </div>
+            <div class="card-body">
+              <p class="bike-name">Bajaj Pulsar NS200</p>
+              <p class="bike-price">
+                ₹1,50,000 <span class="sub">Onwards</span>
+              </p>
+              <a href="#" class="bike-btn add-cart">
+                <i class="fas fa-shopping-cart"></i>
+              </a>
+            </div>
+          </div>
+
+          <div
+            class="bike-gallery-card"
+            data-cat="trending"
+            data-brand="Suzuki"
+            data-price="130000"
+            data-delivery="2days"
+            data-deal="no"
+            data-name="Suzuki Gixxer 155"
+          >
+            <div class="image-box">
+              <img
+                src="/images/suzuki-gixxer.png"
+                class="gallery-thumb"
+                alt="Suzuki Gixxer"
+              />
+            </div>
+            <div class="card-body">
+              <p class="bike-name">Suzuki Gixxer 155</p>
+              <p class="bike-price">
+                ₹1,30,000 <span class="sub">Onwards</span>
+              </p>
+              <a href="#" class="bike-btn add-cart">
+                <i class="fas fa-shopping-cart"></i>
+              </a>
+            </div>
+          </div>
+
+          <div
+            class="bike-gallery-card"
+            data-cat="upcoming"
+            data-brand="Husqvarna"
+            data-price="165000"
+            data-delivery="today"
+            data-deal="no"
+            data-name="Husqvarna Svartpilen 250"
+          >
+            <div class="image-box">
+              <img
+                src="/images/husqvarna.png"
+                class="gallery-thumb"
+                alt="Husqvarna Svartpilen"
+              />
+            </div>
+            <div class="card-body">
+              <p class="bike-name">Husqvarna Svartpilen 250</p>
+              <p class="bike-price">
+                ₹1,65,000 <span class="sub">Onwards</span>
+              </p>
+              <a href="#" class="bike-btn add-cart">
+                <i class="fas fa-shopping-cart"></i>
+              </a>
+            </div>
+          </div>
+
+          <div
+            class="bike-gallery-card"
+            data-cat="electric"
+            data-brand="Ola"
+            data-price="100000"
+            data-delivery="tomorrow"
+            data-deal="yes"
+            data-name="Ola S1 Pro"
+          >
+            <div class="image-box">
+              <img
+                src="/images/ola-s1.png"
+                class="gallery-thumb"
+                alt="Ola S1 Pro"
+              />
+            </div>
+            <div class="card-body">
+              <p class="bike-name">Ola S1 Pro</p>
+              <p class="bike-price">
+                ₹1,00,000 <span class="sub">Onwards</span>
+              </p>
+              <a href="#" class="bike-btn add-cart">
+                <i class="fas fa-shopping-cart"></i>
+              </a>
+            </div>
+          </div>
+          <!-- hh -->
+          <div
+            class="bike-gallery-card"
+            data-cat="trending"
+            data-brand="Honda"
+            data-price="156445"
+            data-delivery="today"
+            data-deal="no"
+            data-name="Splendor Plus"
+          >
+            <div class="image-box">
+              <img
+                src="/images/hero-splendor.png"
+                class="gallery-thumb"
+                alt="Splendor Plus"
+              />
+            </div>
+            <div class="card-body">
+              <p class="bike-name">Splendor Plus</p>
+              <p class="bike-price">
+                ₹1,56,445 <span class="sub">Onwards</span>
+              </p>
+              <a href="#" class="bike-btn add-cart">
+                <i class="fas fa-shopping-cart"></i>
+              </a>
+            </div>
+          </div>
+          <div
+            class="bike-gallery-card"
+            data-cat="trending"
+            data-brand="RE"
+            data-price="156445"
+            data-delivery="today"
+            data-deal="no"
+            data-name="Royal Enfield Himalayan"
+          >
+            <div class="image-box">
+              <img
+                src="/images/re-himalayan.png"
+                class="gallery-thumb"
+                alt="RE Himalayan"
+              />
+            </div>
+            <div class="card-body">
+              <p class="bike-name">Royal Enfield Himalayan</p>
+              <p class="bike-price">
+                ₹1,99,445 <span class="sub">Onwards</span>
+              </p>
+              <a href="#" class="bike-btn add-cart">
+                <i class="fas fa-shopping-cart"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- hh -->
+
+          <!-- add more cards as needed -->
+        </div>
+      </div>
+
+      <button class="slider-arrow next" aria-label="next">›</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Layout */
+  .shop-layout {
+    display: flex;
+    gap: 18px;
+    padding: 18px 0;
+    align-items: flex-start;
+  }
+  .filters-left {
+    width: 260px;
+    background: #fff;
+    padding: 16px;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #222;
+  }
+  .filters-left h3 {
+    margin: 12px 0 8px;
+    font-size: 15px;
+  }
+  .filters-left label {
+    display: block;
+    margin: 6px 0;
+    cursor: pointer;
+  }
+  .filters-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .filters-actions button {
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    background: #f6f6f6;
+    cursor: pointer;
+    border-radius: 6px;
+  }
+
+  .products-right {
+    flex: 1;
+  }
+  .bike-cats {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+  .cat-btn {
+    border: 0;
+    background: transparent;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #444;
+    min-width: 90px;
+    text-align: center;
+  }
+  .cat-btn.active {
+    color: #0a7;
+    border-bottom: 3px solid #0a7;
+  }
+
+  /* Hero image — half screen with subtle zoom & overlay text */
+  .hero-container {
+    /* make container full width so hero image can span across */
+    display: block;
+    width: 100%;
+    padding: 18px 0;
+  }
+
+  /* changed: make hero image full-width, keep height unchanged */
+  .hero-right {
+    position: relative;
+    width: 100% !important;
+    max-width: 100%;
+    height: 60vh;
+    max-height: 760px;
+    overflow: hidden;
+    border-radius: 0; /* remove rounding so image reaches edges */
+    box-shadow: none; /* optional: remove shadow for true full-bleed */
+  }
+
+  /* image fills hero-right area and stays sharp */
+  .hero-right img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: none;
+    filter: brightness(0.98);
+  }
+
+  /* place overlay/text as before (ensure positioned inside full-bleed area) */
+  .hero-overlay,
+  .hero-left {
+    z-index: 3;
+  }
+
+  /* hero-left sits above the gradient overlay; remove backdrop-filter blur */
+  .hero-left {
+    position: absolute;
+    left: 6%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3; /* must be above overlay */
+    color: #fff;
+    max-width: 44%;
+    padding: 18px 22px;
+    box-sizing: border-box;
+    /* removed backdrop-filter (was blur) */
+    /* keep a subtle translucent background for readability (optional) */
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.45);
+  }
+
+  /* slightly larger/cleaner headline to sit on overlay */
+  .hero-left h1 {
+    margin: 0 0 10px;
+    font-size: 34px;
+    line-height: 1.05;
+    font-weight: 800;
+    letter-spacing: -0.4px;
+  }
+  .hero-left p {
+    margin: 0 0 14px;
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 15px;
+  }
+
+  /* keep button visible over overlay */
+  .hero-btn {
+    display: inline-block;
+    background: linear-gradient(180deg, #ffd814, #f7b500);
+    color: #111;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 28px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+    z-index: 4;
+  }
+
+  /* mobile adjustments remain same */
+  @media (max-width: 900px) {
+    .hero-right {
+      height: 48vh;
+    }
+    .hero-left {
+      left: 6%;
+      max-width: 70%;
+      padding: 14px;
+    }
+    .hero-left h1 {
+      font-size: 22px;
+    }
+    .hero-left p {
+      font-size: 13px;
+    }
+    .hero-btn {
+      padding: 8px 14px;
+      font-size: 14px;
+    }
+  }
+
+  /* Full-screen hero (replace previous hero styles) */
+  .hero-container.full-hero {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    padding: 0;
+    height: 60vh; /* adjust to taste: 60vh / 70vh / 100vh */
+    max-height: 760px;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  /* background wrapper must cover entire hero area */
+  .hero-bg {
+    position: absolute;
+    inset: 0; /* top:0; right:0; bottom:0; left:0; */
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* image fills the area with cover, no extra gaps */
+  .hero-bg img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    margin: 0;
+    padding: 0;
+    border-radius: 0; /* ensure no rounding */
+  }
+
+  /* keep CTA over image without affecting layout height */
+  .hero-left {
+    position: absolute;
+    left: 6%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    pointer-events: auto;
+  }
+
+  /* responsive: reduce hero height on narrow screens */
+  @media (max-width: 920px) {
+    .hero-container.full-hero {
+      height: 48vh;
+    }
+  }
+  @media (max-width: 480px) {
+    .hero-container.full-hero {
+      height: 36vh;
+    }
+    .hero-left {
+      left: 4%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  /* Slider / cards - unified size, no hover effects, images centered & contained */
+  .bike-slider-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .slider-arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #eee;
+    background: #fff;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .bike-slider-viewport {
+    overflow: hidden;
+  }
+  .bike-slider-track {
+    display: flex;
+    gap: 18px;
+    transition: none;
+    padding: 6px 6px;
+    will-change: transform;
+  }
+
+  /* Set a smaller, uniform card size (closer to Amazon product thumbnails) */
+  .bike-gallery-card {
+    width: 200px; /* fixed width for all cards */
+    flex: 0 0 200px;
+    min-width: 200px;
+    height: 300px; /* fixed height so all cards align */
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    align-items: stretch;
+    box-shadow: none;
+    cursor: default; /* don't show pointer when hovering card itself */
+    transition: none !important; /* disable any transitions */
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  /* Image area: centered, same box size, use contain so bikes keep proportions and match Amazon-like look */
+  .gallery-thumb {
+    display: block !important;
+    margin: 0 auto !important;
+    padding: 6px 0 !important; /* reduced padding (was 12px) */
+    width: auto !important; /* allow natural width, but limit by max-width/max-height below */
+    max-width: 100% !important; /* never overflow card width */
+    height: auto !important;
+    max-height: 170px !important; /* fill most of the image box vertically */
+    object-fit: contain !important; /* preserve aspect ratio and avoid crop */
+    background: transparent !important;
+    box-sizing: border-box !important;
+    pointer-events: none !important;
+  }
+
+  /* ensure the image area itself can expand if needed, keep a fixed visual box */
+  .bike-gallery-card .image-box {
+    width: 100% !important;
+    height: 170px !important; /* image box height (match max-height) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  /* adjust card-body to keep layout stable */
+  .card-body {
+    height: calc(300px - 170px) !important; /* remaining space */
+    padding: 10px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .bike-name {
+    margin: 0;
+    font-weight: 600;
+    color: #222;
+    font-size: 14px;
+    line-height: 1.2;
+    height: 38px;
+    overflow: hidden;
+  }
+  .bike-price {
+    margin: 0;
+    font-weight: 700;
+    color: #0a7;
+    font-size: 15px;
+  }
+
+  /* product meta like the pasted image */
+  .card-meta {
+    font-size: 12px;
+    color: #007185;
+    margin-top: 6px;
+    text-decoration: underline;
+  }
+  .card-sponsored {
+    font-size: 12px;
+    color: #6b6b6b;
+    margin-top: 6px;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+  .card-title {
+    font-size: 14px;
+    color: #111;
+    margin: 6px 0 4px;
+    line-height: 1.2;
+    height: 38px;
+    overflow: hidden;
+  }
+  .card-rating {
+    font-size: 12px;
+    color: #ff9900;
+    margin: 3px 0;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+  .card-rating .count {
+    color: #6b6b6b;
+    font-size: 12px;
+  }
+
+  .price-row {
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+    margin-top: 6px;
+  }
+  .card-price {
+    font-size: 18px;
+    color: #111;
+    font-weight: 700;
+  }
+  .card-mrp {
+    font-size: 13px;
+    color: #6b6b6b;
+    text-decoration: line-through;
+  }
+
+  .card-delivery {
+    font-size: 12px;
+    color: #6b6b6b;
+    margin-top: 6px;
+  }
+
+  /* Amazon-like yellow Add to cart button */
+  .bike-btn.add-cart {
+    margin-top: 8px;
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    background: #ffd814;
+    color: #111;
+    padding: 8px 12px;
+    border-radius: 20px;
+    border: 0;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+  }
+  .bike-btn.add-cart i {
+    font-size: 14px;
+  }
+
+  /* quantity control styling - compact Amazon-like yellow outline */
+  .qty-controls {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 2px solid #ffd814;
+    padding: 4px 8px;
+    border-radius: 20px;
+    background: #fff;
+    margin-top: 8px;
+    box-sizing: border-box;
+  }
+
+  .qty-controls button {
+    background: transparent;
+    border: none;
+    padding: 6px 8px;
+    cursor: pointer;
+    font-weight: 700;
+    color: #111;
+    border-radius: 6px;
+  }
+
+  .qty-controls .qty-remove {
+    color: #111;
+    font-size: 14px;
+    padding: 6px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+  }
+
+  .qty-controls .qty-decrement,
+  .qty-controls .qty-increment {
+    width: 32px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border-radius: 6px;
+    border: 1px solid #ffd814;
+    color: #111;
+    font-size: 16px;
+  }
+
+  .qty-controls .qty-value {
+    min-width: 28px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 14px;
+    color: #111;
+  }
+
+  /* ensure Add to cart button remains yellow and matches look */
+  .bike-btn.add-cart {
+    background: #ffd814;
+    color: #111;
+    border-radius: 20px;
+    padding: 8px 12px;
+    border: 0;
+    font-weight: 600;
+  }
+
+  /* small screens: keep cards smaller but still uniform */
+  @media (max-width: 900px) {
+    .filters-left {
+      display: none;
+    }
+    .bike-gallery-card {
+      width: 160px;
+      flex: 0 0 160px;
+      min-width: 160px;
+      height: 270px;
+    }
+    .gallery-thumb {
+      height: 140px;
+      padding: 10px;
+    }
+    .cat-btn {
+      min-width: 70px;
+      padding: 6px 8px;
+      font-size: 13px;
+    }
+  }
+
+  /* ensure product grid aligns to top like Amazon */
+  .bike-slider-track > .bike-gallery-card {
+    align-self: flex-start;
+  }
+
+  /* Enforce identical card sizes */
+  .bike-gallery-card {
+    width: 200px !important; /* fixed width for all cards */
+    flex: 0 0 200px !important;
+    min-width: 200px !important;
+    height: 300px !important; /* fixed height so all cards align */
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .gallery-thumb {
+    width: 100% !important;
+    height: 170px !important; /* fixed image box height */
+    object-fit: contain !important; /* keep bike proportions without cropping */
+    display: block !important;
+    background: #ffffff !important;
+    padding: 12px !important;
+    box-sizing: border-box !important;
+    pointer-events: none !important;
+  }
+
+  /* Make body area fixed so text wrapping cannot change card height */
+  .card-body {
+    height: calc(300px - 170px) !important; /* remaining space */
+    padding: 10px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .bike-name,
+  .bike-price {
+    white-space: normal !important;
+    margin: 0;
+  }
+
+  /* keep everything simple, no hover effects */
+  .bike-gallery-card:hover,
+  .bike-gallery-card:focus,
+  .gallery-thumb:hover,
+  .gallery-thumb:focus {
+    transform: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+
+  /* responsive smaller size */
+  @media (max-width: 900px) {
+    .bike-gallery-card {
+      width: 160px !important;
+      flex: 0 0 160px !important;
+      min-width: 160px !important;
+      height: 270px !important;
+    }
+    .gallery-thumb {
+      height: 140px !important;
+      padding: 10px !important;
+    }
+    .card-body {
+      height: calc(270px - 140px) !important;
+    }
+  }
+
+  /* Cart dropdown / panel item styles and simple remove button effect */
+  #cart-items,
+  #cartItems {
+    padding: 8px;
+    max-height: 420px;
+    overflow: auto;
+  }
+  .cart-row {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+  }
+  .cart-thumb {
+    width: 72px;
+    height: 72px;
+    flex: 0 0 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .cart-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  .cart-noimg {
+    width: 56px;
+    height: 56px;
+    background: #f3f3f3;
+    border-radius: 6px;
+  }
+
+  .cart-info {
+    flex: 1;
+    min-width: 0;
+  }
+  .cart-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #111;
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+  .cart-brand {
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 4px;
+  }
+  .cart-price {
+    font-size: 14px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 4px;
+  }
+  .cart-qty {
+    font-size: 13px;
+    color: #555;
+  }
+
+  .cart-actions {
+    flex: 0 0 36px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+  .remove-btn {
+    background: transparent;
+    border: 1px solid transparent;
+    padding: 6px;
+    border-radius: 8px;
+    color: #c22;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.12s ease, transform 0.06s ease;
+  }
+  .remove-btn i {
+    pointer-events: none;
+  }
+  .remove-btn:hover {
+    background: #feecec;
+    transform: translateY(-1px);
+    border-color: #f8d7da;
+  }
+
+  /* Filters panel toggle + animation */
+  .filters-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    background: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(2, 8, 23, 0.04);
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+    margin-bottom: 12px;
+  }
+  .filters-toggle i {
+    font-size: 14px;
+  }
+
+  /* small close button inside panel */
+  .filters-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: 0;
+    font-size: 18px;
+    cursor: pointer;
+    color: #444;
+    display: none; /* shown on small screens */
+  }
+
+  /* overlay shown when panel open on small screens */
+  .filters-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.36);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.18s ease;
+    z-index: 998;
+  }
+
+  /* collapsed state for left filters (mobile & optional desktop collapse) */
+  .filters-left {
+    position: relative;
+    width: 260px;
+    background: #fff;
+    padding: 16px;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #222;
+    transition: transform 0.28s cubic-bezier(0.22, 0.9, 0.32, 1),
+      box-shadow 0.18s ease;
+    z-index: 999;
+  }
+
+  /* when closed, slide out to left (keeps space in layout on desktop) */
+  .filters-left.collapsed {
+    transform: translateX(-112%);
+    box-shadow: none;
+  }
+
+  /* mobile: make filters panel fixed and slide over content */
+  @media (max-width: 920px) {
+    .filters-toggle {
+      display: inline-flex;
+    }
+    .filters-left {
+      position: fixed;
+      left: 0;
+      top: 0;
+      height: 100%;
+      transform: translateX(-112%);
+      box-shadow: 0 18px 40px rgba(2, 8, 23, 0.18);
+      border-radius: 0;
+    }
+    .filters-left.open {
+      transform: translateX(0);
+    }
+    .filters-close {
+      display: block;
+    }
+    .shop-layout {
+      padding-left: 0;
+    } /* avoid layout jump under mobile */
+  }
+
+  /* desktop: allow user to collapse panel too (optional) */
+  @media (min-width: 921px) {
+    .filters-toggle {
+      display: none;
+    } /* hide toggle on desktop if you prefer */
+    .filters-left.collapsed {
+      transform: translateX(-112%);
+    }
+  }
+
+  /* overlay visible state */
+  .filters-overlay.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* subtle hover for toggle */
+  .filters-toggle:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(2, 8, 23, 0.06);
+  }
+
+  /* ...existing code... */
+</style>
+
+<script>
+  (function () {
+    const toggle = document.getElementById("filtersToggle");
+    const panel = document.getElementById("filtersPanel");
+    const closeBtn = document.getElementById("filtersClose");
+
+    // create overlay once
+    let overlay = document.querySelector(".filters-overlay");
+    if (!overlay) {
+      overlay = document.createElement("div");
+      overlay.className = "filters-overlay";
+      document.body.appendChild(overlay);
+    }
+
+    function openFilters() {
+      panel.classList.add("open");
+      panel.classList.remove("collapsed");
+      panel.setAttribute("aria-hidden", "false");
+      if (toggle) toggle.setAttribute("aria-expanded", "true");
+      overlay.classList.add("visible");
+    }
+    function closeFilters() {
+      panel.classList.remove("open");
+      panel.classList.add("collapsed");
+      panel.setAttribute("aria-hidden", "true");
+      if (toggle) toggle.setAttribute("aria-expanded", "false");
+      overlay.classList.remove("visible");
+    }
+    // initial state: expanded on desktop, collapsed on mobile
+    function adaptInitial() {
+      if (window.innerWidth <= 920) {
+        panel.classList.add("collapsed");
+        panel.setAttribute("aria-hidden", "true");
+        if (toggle) toggle.setAttribute("aria-expanded", "false");
+      } else {
+        panel.classList.remove("collapsed");
+        panel.setAttribute("aria-hidden", "false");
+        if (toggle) toggle.setAttribute("aria-expanded", "true");
+      }
+    }
+    adaptInitial();
+    window.addEventListener("resize", adaptInitial);
+
+    // toggle handlers
+    if (toggle)
+      toggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isOpen = panel.classList.contains("open");
+        if (isOpen) closeFilters();
+        else openFilters();
+      });
+    if (closeBtn) closeBtn.addEventListener("click", closeFilters);
+
+    // overlay click closes
+    overlay.addEventListener("click", closeFilters);
+
+    // close when user presses Escape
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeFilters();
+    });
+
+    // clicking outside panel on desktop when collapsed does nothing; when open on mobile overlay handles close
+  })();
+
+  document.addEventListener("DOMContentLoaded", function () {
+    // make thumbnail obviously clickable
+    document
+      .querySelectorAll(".gallery-thumb")
+      .forEach((img) => (img.style.cursor = "pointer"));
+
+    // ensure anchor is keyboard-accessible (Enter/Space)
+    document.querySelectorAll(".product-link").forEach((a) => {
+      a.tabIndex = 0;
+      a.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+  });
+</script>
